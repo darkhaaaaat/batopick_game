@@ -87,7 +87,7 @@ function choose(playerChoice) {
       drawScore++;
       timerDisplay.textContent = "Draw!";
       draw.textContent = `draw: ${drawScore}`;
-      timerDisplay.style.color = "rgb(38, 192, 38";
+      timerDisplay.style.color = "rgb(13, 214, 254)";
     } else if (
       (playerChoice === "bato" && aiChoice === "gunting") ||
       (playerChoice === "gunting" && aiChoice === "papel") ||
@@ -130,6 +130,6 @@ function saveScore() {
 
 function updateUI() {
   win.textContent = `Win: ${winscore}`;
-  loss.textContent = `Lost: ${lostscores}`;
-  draw.textContent = `draw: ${drawScore}`;
+  loss.textContent = `Loss: ${lostscores}`;
+  draw.textContent = `Draw: ${drawScore}`;
 }
