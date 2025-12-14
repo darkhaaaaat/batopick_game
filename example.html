@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        background-color: aqua;
+        height: 200px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="add()">Click</button>
+    <div id="container"></div>
+
+    <script>
+      const container = document.getElementById("container");
+
+      const saved = localStorage.getItem("Div");
+      if (saved) {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = saved;
+
+        container.appendChild(div);
+      }
+
+      function add() {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = "THIS IS A TEXT";
+        container.appendChild(div);
+
+        localStorage.setItem("Div", div.innerHTML);
+      }
+    </script>
+  </body>
+</html>

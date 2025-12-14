@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="icon/png" href="static/elements/logo.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Batopick</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: rgb(231, 186, 159);
+      }
+      header {
+        background-color: rgb(242, 254, 255);
+        height: 15vh;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        box-shadow: 0 0 10px;
+      }
+      header img {
+        width: 150px;
+      }
+      main {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+      main p {
+        font-family: "Press Start 2P", cursive;
+        font-size: xx-large;
+      }
+      .box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .player,
+      .AI {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 40vh;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 0 0 10px;
+      }
+      .player {
+        background-color: white;
+      }
+      .AI {
+        background-color: rgb(255, 255, 255);
+      }
+      .player img,
+      .AI img {
+        width: 200px;
+      }
+      .animate img {
+        animation: shake 0.5s infinite;
+      }
+      @keyframes shake {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-15deg);
+        }
+        50% {
+          transform: rotate(15deg);
+        }
+        75% {
+          transform: rotate(-15deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      .option {
+        width: 80%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        margin-top: 20px;
+      }
+      .option img {
+        width: 150px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .option img:focus {
+        width: 160px;
+        box-shadow: 0 0 10px green;
+        border-radius: 15px;
+      }
+      button {
+        font-family: monospace;
+        font-weight: bold;
+        background-color: rgb(24, 255, 24);
+        padding: 15px 70px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .points {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 30px;
+      }
+      .points p {
+        font-weight: bold;
+        font-size: x-large;
+        color: rgb(4, 0, 255);
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      #loss {
+        color: red;
+      }
+      #draw {
+        color: rgb(38, 192, 38);
+      }
+      @media (max-width: 576px) {
+        header img {
+          width: 100px;
+        }
+        .points p {
+          font-size: medium;
+        }
+        .option img {
+          width: 90px;
+          gap: 10px;
+        }
+        .player img {
+          width: 100px;
+        }
+        .AI img {
+          width: 100px;
+        }
+        .option img:focus {
+          width: 95px;
+          box-shadow: 0 0 10px;
+          border-radius: 15px;
+        }
+        .player {
+          height: 30vh;
+        }
+        .AI {
+          height: 30vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <img src="static/elements/logo.png" alt="Logo" />
+      <div id="points" class="points">
+        <p id="win">win:</p>
+        <p id="loss">loss:</p>
+        <p id="draw">draw:</p>
+      </div>
+    </header>
+    <main>
+      <p id="timer"></p>
+
+      <div class="box">
+        <div id="player" class="player">
+          <p>YOU</p>
+        </div>
+        <div id="AI" class="AI">
+          <p>AI</p>
+        </div>
+      </div>
+      <button id="btn" onclick="start()">Start</button>
+      <div id="option" class="option">
+        <img
+          onclick="bato()"
+          src="static/elements/bato.png"
+          tabindex="0"
+          class="choice"
+        />
+        <img
+          onclick="gunting()"
+          src="static/elements/gunting.png"
+          tabindex="0"
+          class="choice"
+        />
+        <img
+          onclick="papel()"
+          src="static/elements/papel.png"
+          tabindex="0"
+          class="choice"
+        />
+      </div>
+    </main>
+    <audio id="audio" src="static/elements/countdown.mp3"></audio>
+    <script src="static/main.js" defer></script>
+  </body>
+</html>
