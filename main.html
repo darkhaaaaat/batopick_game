@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="icon/png" href="static/elements/logo.png" />
     <link rel="stylesheet" type="text/css" href="static/main.css" />
+    <link rel="stylesheet" type="text/css" href="static/loader.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
 
     <title>Batopick</title>
+    <style>
+      .you {
+        animation: 0.5s intro ease-in;
+      }
+      .OP {
+        animation: 0.5s intro ease-in;
+      }
+      @keyframes intro {
+        0% {
+          transform: scale(2);
+        }
+      }
+    </style>
   </head>
   <body>
     <header id="header">
@@ -26,13 +40,24 @@
 
       <div class="box">
         <div id="player" class="player">
-          <p>YOU</p>
+          <p id="you"></p>
         </div>
         <div id="AI" class="AI">
-          <p>AI</p>
+          <p id="OP"></p>
         </div>
       </div>
       <button id="btn" onclick="start()">Start</button>
+
+      <div id="loader" style="display: none">
+        <div class="ls-particles ls-part-1"></div>
+        <div class="ls-particles ls-part-2"></div>
+        <div class="ls-particles ls-part-3"></div>
+        <div class="ls-particles ls-part-4"></div>
+        <div class="ls-particles ls-part-5"></div>
+        <div class="lightsaber ls-left ls-green"></div>
+        <div class="lightsaber ls-right ls-red"></div>
+      </div>
+
       <div id="option" class="option">
         <img
           onclick="bato()"

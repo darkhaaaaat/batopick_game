@@ -10,6 +10,10 @@ const points = document.getElementById("points");
 const header = document.getElementById("header");
 
 const audio = document.getElementById("audio");
+const loader = document.getElementById("loader");
+
+const YOU = document.getElementById("you");
+const OP = document.getElementById("OP");
 
 let winscore = 0;
 let lostscores = 0;
@@ -21,8 +25,21 @@ let time = 10;
 let interval;
 
 function start() {
-  pick.style.display = "flex";
-  btn.style.display = "none";
+  pick.style.display = "none";
+  btn.textContent = "Searching player...";
+  btn.style.backgroundColor = "transparent";
+  btn.style.color = "white";
+  loader.style.display = "flex";
+
+  setTimeout(() => {
+    YOU.textContent = "YOU";
+    YOU.classList.add("you");
+    OP.classList.add("OP");
+    OP.textContent = "OP";
+    loader.style.display = "none";
+    btn.style.display = "none";
+    pick.style.display = "flex";
+  }, 6000);
 }
 
 function timer(callback) {
