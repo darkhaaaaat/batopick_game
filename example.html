@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #hand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      p {
+        font-family: monospace;
+        font-weight: bold;
+        font-size: x-large;
+      }
+      button {
+        background-color: rgb(84, 225, 84);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+      }
+      .hands img {
+        animation: shake 0.5s infinite;
+      }
+      @keyframes shake {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-15deg);
+        }
+        50% {
+          transform: rotate(15deg);
+        }
+        75% {
+          transform: rotate(-15deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hand">
+      <p id="count"></p>
+      <img src="static/elements/bato.png" alt="bato" />
+      <button onclick="shake()">click</button>
+    </div>
+    <script>
+      const hand = document.getElementById("hand");
+      const count = document.getElementById("count");
+
+      let timer = 5;
+      let follow;
+
+      function shake() {}
+
+      follow = setInterval(() => {
+        shake();
+        if (timer == 0) {
+          hand.classList.add("hands");
+          setTimeout(() => {
+            hand.innerHTML = "";
+            const img = document.createElement("img");
+            img.src = "static/elements/gunting.png";
+            hand.appendChild(img);
+
+            hand.classList.remove("hands");
+          }, 2000);
+        } else {
+          count.textContent = timer;
+          timer--;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
