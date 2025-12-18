@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batopick</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: linear-gradient(rgb(5, 25, 104), rgb(58, 7, 77));
+      }
+      header {
+        border-bottom: solid rgb(209, 205, 205);
+        background: linear-gradient(
+          to bottom,
+          rgb(102, 102, 102) 50%,
+          rgb(20, 20, 20) 50%
+        );
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      header img {
+        width: 200px;
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+      }
+      main {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .left,
+      .right {
+        color: white;
+        border-radius: 15px;
+        width: 30%;
+        height: 50vh;
+        background-color: transparent;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .left img,
+      .right img {
+        cursor: pointer;
+        width: 400px;
+      }
+      .left img:hover,
+      .right img:hover {
+        width: 410px;
+      }
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.204);
+        height: 16vh;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+      footer img {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header><img src="static/elements/logo.png" /></header>
+    <main>
+      <div class="container">
+        <div class="left">
+          <a href="main.html"
+            ><img src="static/classic.png" alt="class img"
+          /></a>
+          <h4>Endless Mode</h4>
+        </div>
+        <div class="right">
+          <img src="static/rank.png" alt="rank img" />
+          <h4>Win Rush (first to 5 points = 1 win)</h4>
+        </div>
+      </div>
+
+      <h1>More coming soon...</h1>
+    </main>
+    <footer><img src="static/elements/locked.png" alt="locked img" /></footer>
+  </body>
+</html>
