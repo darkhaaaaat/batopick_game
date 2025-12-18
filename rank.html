@@ -88,13 +88,14 @@
         color: red;
         font-family: "Press Start 2P", cursive;
       }
-      #player {
-        background-color: white;
-      }
+
       .stick {
         width: 2%;
         height: 29vh;
         background-color: black;
+      }
+      .player1 {
+        background-color: rgb(0, 0, 0);
       }
     </style>
   </head>
@@ -103,11 +104,10 @@
       <div class="what">
         <img src="static/elements/logo.png" alt="Logo" />
         <div class="stats">
-          <button>Stats</button>
+          <button onclick="showstats()">Stats</button>
           <button>LeaderBoard</button>
           <button>Settings</button>
         </div>
-
         <div class="boards">
           <div class="board leftboard">
             <p id="win">0</p>
@@ -121,8 +121,16 @@
     <main>
       <p id="timer"></p>
 
-      <div class="box">
+      <div id="mainbox" class="box">
         <div id="player" class="player">
+          <p id="you"></p>
+        </div>
+        <div id="AI" class="AI">
+          <p id="OP"></p>
+        </div>
+      </div>
+      <div style="display: none" id="leaderboard" class="box">
+        <div id="player" class="player player1">
           <div id="points" style="display: flex" class="points">
             <p id="winboard">win:</p>
             <p id="lossboard">loss:</p>
@@ -130,7 +138,39 @@
           </div>
         </div>
       </div>
-      <div class="stick"></div>
+      <div style="display: none" id="stick" class="stick"></div>
+      <button id="btn" onclick="start()">Start</button>
+
+      <div id="loader" style="display: none">
+        <div class="ls-particles ls-part-1"></div>
+        <div class="ls-particles ls-part-2"></div>
+        <div class="ls-particles ls-part-3"></div>
+        <div class="ls-particles ls-part-4"></div>
+        <div class="ls-particles ls-part-5"></div>
+        <div class="lightsaber ls-left ls-green"></div>
+        <div class="lightsaber ls-right ls-red"></div>
+      </div>
+
+      <div id="option" class="option">
+        <img
+          onclick="bato()"
+          src="static/elements/bato.png"
+          tabindex="0"
+          class="choice"
+        />
+        <img
+          onclick="gunting()"
+          src="static/elements/gunting.png"
+          tabindex="0"
+          class="choice"
+        />
+        <img
+          onclick="papel()"
+          src="static/elements/papel.png"
+          tabindex="0"
+          class="choice"
+        />
+      </div>
     </main>
     <audio id="audio" src="static/elements/countdown.mp3"></audio>
     <script src="static/rank.js" defer></script>

@@ -8,10 +8,13 @@ const loss = document.getElementById("loss");
 const draw = document.getElementById("draw");
 const points = document.getElementById("points");
 const header = document.getElementById("header");
-
+//leader board
+const winboards = document.getElementById("winboard");
+const lossboard = document.getElementById("lossboard");
+//others
 const audio = document.getElementById("audio");
 const loader = document.getElementById("loader");
-
+//player
 const YOU = document.getElementById("you");
 const OP = document.getElementById("OP");
 
@@ -19,6 +22,9 @@ let winscore = 0;
 let lostscores = 0;
 let drawScore = 0;
 let scoresave = points.innerHTML;
+
+let winboard = 0;
+let lostboard = 0;
 
 const choices = ["bato", "gunting", "papel"];
 let time = 10;
@@ -30,6 +36,13 @@ function start() {
   btn.style.backgroundColor = "transparent";
   btn.style.color = "white";
   loader.style.display = "flex";
+  winscore = 0;
+  lostscores = 0;
+  win.textContent = "0";
+  loss.textContent = "0";
+  timerDisplay.textContent = "";
+  playerDiv.innerHTML = "";
+  aiDiv.innerHTML = "";
 
   setTimeout(() => {
     YOU.textContent = "YOU";
@@ -39,7 +52,7 @@ function start() {
     loader.style.display = "none";
     btn.style.display = "none";
     pick.style.display = "flex";
-  }, 6000);
+  }, 5000);
 }
 
 function timer(callback) {
@@ -102,6 +115,7 @@ function choose(playerChoice) {
 
     if (playerChoice === aiChoice) {
       drawScore++;
+
       timerDisplay.textContent = "Draw!";
       draw.textContent = `draw: ${drawScore}`;
       timerDisplay.style.color = "rgb(13, 214, 254)";
@@ -111,25 +125,65 @@ function choose(playerChoice) {
       (playerChoice === "papel" && aiChoice === "bato")
     ) {
       winscore++;
+      winboard++;
       timerDisplay.textContent = "You Win!";
-      win.textContent = `Win: ${winscore}`;
+      win.textContent = winscore;
       timerDisplay.style.color = "green";
     } else {
       lostscores++;
+      lostboard++;
       timerDisplay.textContent = "You Lose!";
-      loss.textContent = `Lost: ${lostscores}`;
+      loss.textContent = lostscores;
       timerDisplay.style.color = "red";
     }
     updateUI();
     saveScore();
+    //winning system
+    if (winscore === 1) {
+      setTimeout(() => {
+        timerDisplay.textContent = "WINNER";
+        timerDisplay.style.color = "yellow";
+        pick.style.display = "none";
+        btn.style.display = "block";
+        btn.textContent = "Again";
+        btn.style.backgroundColor = "";
+        btn.style.color = "black";
+      }, 1000);
+    } else if (lostscores === 1) {
+      setTimeout(() => {
+        timerDisplay.textContent = "LOOSER";
+        timerDisplay.style.color = "red";
+        pick.style.display = "none";
+        btn.style.display = "block";
+        btn.textContent = "Again";
+        btn.style.backgroundColor = "";
+        btn.style.color = "black";
+      }, 1000);
+    }
   });
 }
-
+//stats
+const lb = document.getElementById("leaderboard");
+const stick = document.getElementById("stick");
+const mainbox = document.getElementById("mainbox");
+let show = false;
+function showstats() {
+  if (!show) {
+    mainbox.style.display = "none";
+    lb.style.display = "flex";
+    show = true;
+  } else {
+    mainbox.style.display = "flex";
+    lb.style.display = "none";
+    show = false;
+  }
+}
+//localsaving
 window.addEventListener("DOMContentLoaded", () => {
   const saved = JSON.parse(localStorage.getItem("points"));
   if (saved) {
-    winscore = saved.win;
-    lostscores = saved.loss;
+    winboard = saved.win;
+    lostboard = saved.loss;
     drawScore = saved.draw;
 
     updateUI();
@@ -138,15 +192,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function saveScore() {
   const data = {
-    win: winscore,
-    loss: lostscores,
+    win: winboard,
+    loss: lostboard,
     draw: drawScore,
   };
   localStorage.setItem("points", JSON.stringify(data));
 }
 
 function updateUI() {
-  win.textContent = `Win: ${winscore}`;
-  loss.textContent = `Loss: ${lostscores}`;
+  winboards.textContent = `Win: ${winboard}`;
+  lossboard.textContent = `Loss: ${lostboard}`;
   draw.textContent = `Draw: ${drawScore}`;
 }

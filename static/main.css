@@ -130,9 +130,14 @@ button {
 }
 #loss {
   color: red;
+  font-family: "Press Start 2P", cursive;
 }
 #draw {
   color: rgb(13, 214, 254);
+  font-family: "Press Start 2P", cursive;
+}
+#win {
+  font-family: "Press Start 2P", cursive;
 }
 @media (max-width: 576px) {
   header img {
