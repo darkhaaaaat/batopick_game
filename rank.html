@@ -97,6 +97,34 @@
       .player1 {
         background-color: rgb(0, 0, 0);
       }
+      .points-star-streak {
+        margin-left: 50px;
+        margin-top: 30px;
+        width: 20%;
+        height: 10vh;
+        display: flex;
+        justify-content: start;
+        align-items: end;
+        color: white;
+        font-family: "Press Start 2P", cursive;
+        gap: 40px;
+      }
+      .points-star-streak img {
+        width: 50px;
+      }
+      #streak {
+        width: 40px;
+      }
+      .star {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .streak {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
@@ -115,6 +143,16 @@
           <div class="board rightboard">
             <p id="loss">0</p>
           </div>
+        </div>
+      </div>
+      <div class="points-star-streak">
+        <div class="star">
+          <img src="static/elements/star.png" alt="star" />
+          <span id="star"></span>
+        </div>
+        <div class="streak">
+          <img id="streak" src="static/elements/fire.png" alt="fire" />
+          <span id="streak"></span>
         </div>
       </div>
     </header>

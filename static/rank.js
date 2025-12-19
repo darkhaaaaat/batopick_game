@@ -17,6 +17,12 @@ const loader = document.getElementById("loader");
 //player
 const YOU = document.getElementById("you");
 const OP = document.getElementById("OP");
+//star and streak
+const star = document.getElementById("star");
+const streak = document.getElementById("streak");
+
+let starscore = 0;
+let streakscore = 0;
 
 let winscore = 0;
 let lostscores = 0;
@@ -43,7 +49,6 @@ function start() {
   timerDisplay.textContent = "";
   playerDiv.innerHTML = "";
   aiDiv.innerHTML = "";
-
   setTimeout(() => {
     YOU.textContent = "YOU";
     YOU.classList.add("you");
@@ -52,7 +57,7 @@ function start() {
     loader.style.display = "none";
     btn.style.display = "none";
     pick.style.display = "flex";
-  }, 5000);
+  }, 1000);
 }
 
 function timer(callback) {
@@ -139,8 +144,11 @@ function choose(playerChoice) {
     updateUI();
     saveScore();
     //winning system
-    if (winscore === 1) {
+    // WIN (this round)
+    if (winscore > 0 && lostscores === 0) {
       setTimeout(() => {
+        starscore++;
+        streakscore++;
         timerDisplay.textContent = "WINNER";
         timerDisplay.style.color = "yellow";
         pick.style.display = "none";
@@ -148,16 +156,25 @@ function choose(playerChoice) {
         btn.textContent = "Again";
         btn.style.backgroundColor = "";
         btn.style.color = "black";
+
+        star.textContent = `: ${starscore}`;
+        streak.textContent = `: ${streakscore}`;
       }, 1000);
-    } else if (lostscores === 1) {
+
+      // LOSS (this round)
+    } else if (lostscores > 0 && winscore === 0) {
       setTimeout(() => {
-        timerDisplay.textContent = "LOOSER";
+        streakscore = 0;
+        timerDisplay.textContent = "LOSER";
         timerDisplay.style.color = "red";
+
         pick.style.display = "none";
         btn.style.display = "block";
         btn.textContent = "Again";
         btn.style.backgroundColor = "";
         btn.style.color = "black";
+
+        streak.textContent = `: ${streakscore}`;
       }, 1000);
     }
   });
