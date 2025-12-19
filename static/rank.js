@@ -19,7 +19,7 @@ const YOU = document.getElementById("you");
 const OP = document.getElementById("OP");
 //star and streak
 const star = document.getElementById("star");
-const streak = document.getElementById("streak");
+const streak = document.getElementById("streakId");
 
 let starscore = 0;
 let streakscore = 0;
@@ -27,7 +27,6 @@ let streakscore = 0;
 let winscore = 0;
 let lostscores = 0;
 let drawScore = 0;
-let scoresave = points.innerHTML;
 
 let winboard = 0;
 let lostboard = 0;
@@ -141,14 +140,13 @@ function choose(playerChoice) {
       loss.textContent = lostscores;
       timerDisplay.style.color = "red";
     }
-    updateUI();
-    saveScore();
+
     //winning system
     // WIN (this round)
-    if (winscore > 0 && lostscores === 0) {
+    if (winscore === 5) {
       setTimeout(() => {
-        starscore++;
-        streakscore++;
+        starscore += 1;
+        streakscore += 1;
         timerDisplay.textContent = "WINNER";
         timerDisplay.style.color = "yellow";
         pick.style.display = "none";
@@ -159,10 +157,11 @@ function choose(playerChoice) {
 
         star.textContent = `: ${starscore}`;
         streak.textContent = `: ${streakscore}`;
+        saveScore();
       }, 1000);
 
       // LOSS (this round)
-    } else if (lostscores > 0 && winscore === 0) {
+    } else if (lostscores === 5) {
       setTimeout(() => {
         streakscore = 0;
         timerDisplay.textContent = "LOSER";
@@ -175,8 +174,11 @@ function choose(playerChoice) {
         btn.style.color = "black";
 
         streak.textContent = `: ${streakscore}`;
+        saveScore();
       }, 1000);
     }
+    updateUI();
+    saveScore();
   });
 }
 //stats
@@ -202,6 +204,8 @@ window.addEventListener("DOMContentLoaded", () => {
     winboard = saved.win;
     lostboard = saved.loss;
     drawScore = saved.draw;
+    starscore = saved.star || 0;
+    streakscore = saved.streak || 0;
 
     updateUI();
   }
@@ -212,6 +216,8 @@ function saveScore() {
     win: winboard,
     loss: lostboard,
     draw: drawScore,
+    star: starscore,
+    streak: streakscore,
   };
   localStorage.setItem("points", JSON.stringify(data));
 }
@@ -220,4 +226,6 @@ function updateUI() {
   winboards.textContent = `Win: ${winboard}`;
   lossboard.textContent = `Loss: ${lostboard}`;
   draw.textContent = `Draw: ${drawScore}`;
+  star.textContent = `: ${starscore}`;
+  streak.textContent = `: ${streakscore}`;
 }
