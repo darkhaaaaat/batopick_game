@@ -190,11 +190,33 @@ function showstats() {
   if (!show) {
     mainbox.style.display = "none";
     lb.style.display = "flex";
+    leaderboard.style.display = "none";
+    btn.style.display = "block";
     show = true;
   } else {
     mainbox.style.display = "flex";
+    leaderboard.style.display = "none";
     lb.style.display = "none";
+    btn.style.display = "block";
     show = false;
+  }
+}
+//leaderboard
+const leaderboard = document.getElementById("LB");
+let reveal = false;
+function showboard() {
+  if (!reveal) {
+    mainbox.style.display = "none";
+    leaderboard.style.display = "flex";
+    lb.style.display = "none";
+    btn.style.display = "none";
+    reveal = true;
+  } else {
+    mainbox.style.display = "flex";
+    leaderboard.style.display = "none";
+    lb.style.display = "none";
+    btn.style.display = "block";
+    reveal = false;
   }
 }
 //localsaving

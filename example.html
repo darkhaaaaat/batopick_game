@@ -88,13 +88,62 @@
         color: red;
         font-family: "Press Start 2P", cursive;
       }
-      #player {
-        background-color: white;
-      }
+
       .stick {
         width: 2%;
         height: 29vh;
         background-color: black;
+      }
+      .player1 {
+        background-color: rgb(0, 0, 0);
+      }
+      .player2 {
+        height: 70vh;
+      }
+      .points-star-streak {
+        margin-left: 50px;
+        margin-top: 30px;
+        width: 20%;
+        height: 10vh;
+        display: flex;
+        justify-content: start;
+        align-items: end;
+        color: white;
+        font-family: "Press Start 2P", cursive;
+        gap: 40px;
+      }
+      .points-star-streak img {
+        width: 50px;
+      }
+      #streak {
+        width: 40px;
+      }
+      .star {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .streak {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .lb {
+        flex-direction: column;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        background: #2a2a2a;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     </style>
   </head>
@@ -103,11 +152,10 @@
       <div class="what">
         <img src="static/elements/logo.png" alt="Logo" />
         <div class="stats">
-          <button>Stats</button>
+          <button onclick="showstats()">Stats</button>
           <button>LeaderBoard</button>
           <button>Settings</button>
         </div>
-
         <div class="boards">
           <div class="board leftboard">
             <p id="win">0</p>
@@ -117,22 +165,34 @@
           </div>
         </div>
       </div>
+      <div class="points-star-streak">
+        <div class="star">
+          <img src="static/elements/star.png" alt="star" />
+          <span id="star">: 0</span>
+        </div>
+        <div class="streak">
+          <img id="streak" src="static/elements/fire.png" alt="fire" />
+          <span id="streakId">: 0</span>
+        </div>
+      </div>
     </header>
     <main>
-      <p id="timer"></p>
-
-      <div class="box">
-        <div id="player" class="player">
-          <div id="points" style="display: flex" class="points">
-            <p id="winboard">win:</p>
-            <p id="lossboard">loss:</p>
-            <p id="draw">draw:</p>
+      <!--leaderboard-->
+      <div style="display: flex" id="leaderboard" class="box">
+        <div id="player" class="player player2">
+          <div id="points" style="display: flex" class="points lb">
+            <p>LeaderBoard</p>
+            <u>
+              <li>kim</li>
+              <li>kim</li>
+              <li>kim</li>
+              <li>kim</li>
+            </u>
           </div>
         </div>
       </div>
-      <div class="stick"></div>
     </main>
     <audio id="audio" src="static/elements/countdown.mp3"></audio>
-    <script src="static/rank.js" defer></script>
   </body>
+  <script src="static/rank.js" defer></script>
 </html>
