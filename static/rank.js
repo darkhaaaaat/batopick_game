@@ -142,6 +142,7 @@ function choose(playerChoice) {
     }
 
     //winning system
+
     // WIN (this round)
     if (winscore === 5) {
       setTimeout(() => {
@@ -157,6 +158,7 @@ function choose(playerChoice) {
 
         star.textContent = `: ${starscore}`;
         streak.textContent = `: ${streakscore}`;
+
         saveScore();
       }, 1000);
 
@@ -181,10 +183,14 @@ function choose(playerChoice) {
     saveScore();
   });
 }
+
 //stats
 const lb = document.getElementById("leaderboard");
 const stick = document.getElementById("stick");
 const mainbox = document.getElementById("mainbox");
+
+const leaderpoints = document.getElementById("lbpoints");
+
 let show = false;
 function showstats() {
   if (!show) {
@@ -250,4 +256,5 @@ function updateUI() {
   draw.textContent = `Draw: ${drawScore}`;
   star.textContent = `: ${starscore}`;
   streak.textContent = `: ${streakscore}`;
+  leaderpoints.textContent = `: ${starscore}`;
 }
