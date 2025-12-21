@@ -169,6 +169,15 @@
         align-items: center;
         flex-direction: row;
       }
+      .statsbox {
+        height: 18vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+        background-color: black;
+      }
     </style>
   </head>
   <body>
@@ -222,26 +231,34 @@
       </div>
       <!--stats-->
       <div style="display: none" id="leaderboard" class="box">
-        <div id="player" class="player player1">
-          <div id="points" style="display: flex" class="points">
-            <p id="winboard">win:</p>
-            <p id="lossboard">loss:</p>
-            <p id="draw">draw:</p>
-          </div>
+        <div id="points" style="display: flex" class="statsbox">
+          <p id="winboard">win:</p>
+          <p id="lossboard">loss:</p>
+          <p id="draw">draw:</p>
         </div>
       </div>
       <!--leaderboard-->
       <div style="display: none" id="LB" class="box">
         <div id="player" class="boardUi">
           <div class="place place1">
-            <p></p>
-          </div>
-          <div class="place place2">s</div>
-          <div class="place place3">
             <p>You</p>
             <div class="lbright">
               <img src="static/elements/star.png" alt="star" />
               <p id="lbpoints"></p>
+            </div>
+          </div>
+          <div class="place place2">
+            <p>Jhon</p>
+            <div class="lbright">
+              <img src="static/elements/star.png" alt="star" />
+              <p id="lbpoints">: 3</p>
+            </div>
+          </div>
+          <div class="place place3">
+            <p>Kim</p>
+            <div class="lbright">
+              <img src="static/elements/star.png" alt="star" />
+              <p id="lbpoints">: 1</p>
             </div>
           </div>
         </div>

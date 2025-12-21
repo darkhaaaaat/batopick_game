@@ -56,7 +56,7 @@ function start() {
     loader.style.display = "none";
     btn.style.display = "none";
     pick.style.display = "flex";
-  }, 1000);
+  }, 4000);
 }
 
 function timer(callback) {
@@ -197,7 +197,7 @@ function showstats() {
     mainbox.style.display = "none";
     lb.style.display = "flex";
     leaderboard.style.display = "none";
-    btn.style.display = "block";
+    btn.style.display = "none";
     show = true;
   } else {
     mainbox.style.display = "flex";
@@ -205,6 +205,10 @@ function showstats() {
     lb.style.display = "none";
     btn.style.display = "block";
     show = false;
+
+    if (btn.textContent === "Searching player...") {
+      btn.style.display = "none";
+    }
   }
 }
 //leaderboard
@@ -223,6 +227,10 @@ function showboard() {
     lb.style.display = "none";
     btn.style.display = "block";
     reveal = false;
+
+    if (btn.textContent === "Searching player...") {
+      btn.style.display = "none";
+    }
   }
 }
 //localsaving
