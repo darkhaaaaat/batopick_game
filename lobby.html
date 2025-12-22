@@ -30,6 +30,7 @@
       }
       header img {
         width: 200px;
+        animation: slide 0.5s ease-in;
       }
       .container {
         width: 100%;
@@ -53,7 +54,6 @@
         width: 30%;
         height: 50vh;
         background-color: transparent;
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -63,6 +63,15 @@
       .right img {
         cursor: pointer;
         width: 400px;
+        animation: slide 1.5s ease-in;
+      }
+      .right img {
+        animation: slide 2s ease-in;
+      }
+      @keyframes slide {
+        0% {
+          transform: scale(0);
+        }
       }
       .left img:hover,
       .right img:hover {
@@ -81,11 +90,31 @@
       footer img {
         width: 50px;
       }
+      @media (max-width: 576px) {
+        header img {
+          width: 150px;
+        }
+        .left img,
+        .right img {
+          width: 300px;
+        }
+        .container {
+          flex-direction: column;
+          height: 55vh;
+        }
+        h1 {
+          font-size: large;
+        }
+        .left img:hover,
+        .right img:hover {
+          width: 320px;
+          transition: 0.2ss ease-in-out;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
-      <a href="/static/classic.png" download>download</a>
       <img src="static/elements/logo.png" />
     </header>
     <main>
@@ -94,11 +123,9 @@
           <a href="classic.html"
             ><img src="static/classic.png" alt="class img"
           /></a>
-          <h4>Endless Mode</h4>
         </div>
         <div class="right">
           <a href="rank.html"> <img src="static/rank.png" alt="rank img" /></a>
-          <h4>Win Rush (first to 5 points = 1 win)</h4>
         </div>
       </div>
 

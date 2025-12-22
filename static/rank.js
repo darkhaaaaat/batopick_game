@@ -21,6 +21,21 @@ const OP = document.getElementById("OP");
 const star = document.getElementById("star");
 const streak = document.getElementById("streakId");
 
+const p1 = document.getElementById("p1");
+const p2 = document.getElementById("p2");
+const p3 = document.getElementById("p3");
+const p4 = document.getElementById("p4");
+const p5 = document.getElementById("p5");
+
+const a1 = document.getElementById("a1");
+const a2 = document.getElementById("a2");
+const a3 = document.getElementById("a3");
+const a4 = document.getElementById("a4");
+const a5 = document.getElementById("a5");
+
+const playerCircles = [p1, p2, p3, p4, p5];
+const aiCircles = [a1, a2, a3, a4, a5];
+
 let starscore = 0;
 let streakscore = 0;
 
@@ -36,6 +51,8 @@ let time = 10;
 let interval;
 
 function start() {
+  resetcircle();
+
   pick.style.display = "none";
   btn.textContent = "Searching player...";
   btn.style.backgroundColor = "transparent";
@@ -48,6 +65,7 @@ function start() {
   timerDisplay.textContent = "";
   playerDiv.innerHTML = "";
   aiDiv.innerHTML = "";
+
   setTimeout(() => {
     YOU.textContent = "YOU";
     YOU.classList.add("you");
@@ -179,9 +197,31 @@ function choose(playerChoice) {
         saveScore();
       }, 1000);
     }
+
+    if (winscore >= 1 && winscore <= 5) {
+      playerCircles[winscore - 1].classList.add("updatescore");
+    }
+
+    if (lostscores >= 1 && lostscores <= 5) {
+      aiCircles[lostscores - 1].classList.add("updatescore");
+    }
     updateUI();
     saveScore();
   });
+}
+
+function resetcircle() {
+  p1.classList.remove("updatescore");
+  p2.classList.remove("updatescore");
+  p3.classList.remove("updatescore");
+  p4.classList.remove("updatescore");
+  p5.classList.remove("updatescore");
+
+  a1.classList.remove("updatescore");
+  a2.classList.remove("updatescore");
+  a3.classList.remove("updatescore");
+  a4.classList.remove("updatescore");
+  a5.classList.remove("updatescore");
 }
 
 //stats
@@ -233,6 +273,7 @@ function showboard() {
     }
   }
 }
+
 //localsaving
 window.addEventListener("DOMContentLoaded", () => {
   const saved = JSON.parse(localStorage.getItem("points"));

@@ -13,183 +13,33 @@
 
     <title>Batopick</title>
     <style>
-      .you {
-        animation: 0.5s intro ease-in;
-      }
-      .OP {
-        animation: 0.5s intro ease-in;
-      }
-      @keyframes intro {
-        0% {
-          transform: scale(2);
-        }
-      }
-      .boards {
-        width: 20%;
+      .circle {
         display: flex;
-        justify-content: start;
-        align-items: center;
-        font-family: "Press Start 2P", cursive;
-        font-size: xx-large;
-        color: white;
-        height: 15vh;
-      }
-
-      .leftboard {
-        width: 50%;
-        height: 13vh;
-        border-right: solid white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .rightboard {
-        width: 50%;
-        height: 13vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .what {
-        width: 55%;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-
-        justify-content: space-between;
-      }
-      .stats {
-        width: 50%;
-
-        padding-top: 20px;
-        margin-top: 40px;
-        display: flex;
-        justify-content: space-evenly;
-      }
-      .stats button {
-        font-family: "Press Start 2P", cursive;
-        color: white;
-        padding: 5px 20px;
-        background-color: transparent;
-        border-radius: 0;
-      }
-      .stats button:focus {
-        border-bottom: solid rgb(0, 255, 68) 1.9px;
-      }
-      .stats button:hover {
-        border-bottom: solid rgb(0, 255, 68);
-      }
-      #winboard {
-        color: rgb(25, 239, 25);
-        font-family: "Press Start 2P", cursive;
-      }
-      #lossboard {
-        color: red;
-        font-family: "Press Start 2P", cursive;
-      }
-
-      .stick {
-        width: 2%;
-        height: 29vh;
-        background-color: black;
-      }
-      .player1 {
-        background-color: rgb(0, 0, 0);
-      }
-      .player2 {
-        height: 70vh;
-      }
-      .points-star-streak {
-        margin-left: 50px;
-        margin-top: 30px;
-        width: 20%;
-        height: 10vh;
-        display: flex;
-        justify-content: start;
-        align-items: end;
-        color: white;
-        font-family: "Press Start 2P", cursive;
-        gap: 40px;
-      }
-      .points-star-streak img {
-        width: 50px;
-      }
-      #streak {
-        width: 40px;
-      }
-      .star {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .streak {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .place {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 80%;
-        height: 10vh;
-        border-radius: 15px;
-        background-color: rgba(35, 35, 33, 0.658);
-      }
-      .place1 {
-        background-color: rgba(255, 255, 0, 0.796);
-      }
-      .place2 {
-        background-color: rgba(0, 128, 0, 0.699);
-      }
-
-      .boardUi {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        height: 40vh;
-        border-radius: 10px;
-        margin: 10px;
-        box-shadow: 0 0 10px;
-        border: solid gray 9px;
-        color: white;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
       }
-      .boardUi img {
-        width: 70px;
+      .circleUpdate {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        border: solid rgb(0, 0, 0) 2px;
+        background-color: rgb(99, 101, 99);
       }
-      .lbright {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-      }
-      .statsbox {
-        height: 18vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 20px;
-        background-color: black;
+      .updatescore {
+        background-color: rgb(7, 230, 7);
+        transition: 1s ease-in-out;
       }
     </style>
   </head>
   <body>
     <header id="header">
       <div class="what">
-        <img src="static/elements/logo.png" alt="Logo" />
         <div class="stats">
           <button onclick="showstats()">Stats</button>
           <button onclick="showboard()">LeaderBoard</button>
           <button>Settings</button>
         </div>
-        <div class="boards">
+        <div class="boards" style="display: none">
           <div class="board leftboard">
             <p id="win">0</p>
           </div>
@@ -197,24 +47,25 @@
             <p id="loss">0</p>
           </div>
         </div>
-      </div>
-      <div class="points-star-streak">
-        <div class="star">
-          <img
-            title="you gain star everytime you win"
-            src="static/elements/star.png"
-            alt="star"
-          />
-          <span id="star">: 0</span>
-        </div>
-        <div class="streak">
-          <img
-            title="you gain streak every time you win (returns to zero if you lose)"
-            id="streak"
-            src="static/elements/fire.png"
-            alt="fire"
-          />
-          <span id="streakId">: 0</span>
+
+        <div class="points-star-streak">
+          <div class="star">
+            <img
+              title="you gain star everytime you win"
+              src="static/elements/star.png"
+              alt="star"
+            />
+            <span id="star">: 0</span>
+          </div>
+          <div class="streak">
+            <img
+              title="you gain streak every time you win (returns to zero if you lose)"
+              id="streak"
+              src="static/elements/fire.png"
+              alt="fire"
+            />
+            <span id="streakId">: 0</span>
+          </div>
         </div>
       </div>
     </header>
@@ -222,11 +73,25 @@
       <p id="timer"></p>
 
       <div id="mainbox" class="box">
+        <div class="circle">
+          <div id="p1" class="circleUpdate"></div>
+          <div id="p2" class="circleUpdate"></div>
+          <div id="p3" class="circleUpdate"></div>
+          <div id="p4" class="circleUpdate"></div>
+          <div id="p5" class="circleUpdate"></div>
+        </div>
         <div id="player" class="player">
           <p id="you"></p>
         </div>
         <div id="AI" class="AI">
           <p id="OP"></p>
+        </div>
+        <div class="circle">
+          <div id="a1" class="circleUpdate"></div>
+          <div id="a2" class="circleUpdate"></div>
+          <div id="a3" class="circleUpdate"></div>
+          <div id="a4" class="circleUpdate"></div>
+          <div id="a5" class="circleUpdate"></div>
         </div>
       </div>
       <!--stats-->

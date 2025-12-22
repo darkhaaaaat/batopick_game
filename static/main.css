@@ -19,7 +19,7 @@ header {
   height: 15vh;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 header img {
   width: 150px;
@@ -171,5 +171,192 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+  }
+}
+
+.you {
+  animation: 0.5s intro ease-in;
+}
+.OP {
+  animation: 0.5s intro ease-in;
+}
+@keyframes intro {
+  0% {
+    transform: scale(2);
+  }
+}
+.boards {
+  width: 20%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: xx-large;
+  color: white;
+  height: 15vh;
+}
+
+.leftboard {
+  width: 50%;
+  height: 13vh;
+  border-right: solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightboard {
+  width: 50%;
+  height: 13vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.what {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border: solid;
+  justify-content: space-between;
+}
+.stats {
+  width: 50%;
+
+  padding-top: 20px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.stats button {
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  padding: 5px 20px;
+  background-color: transparent;
+  border-radius: 0;
+}
+.stats button:focus {
+  border-bottom: solid rgb(0, 255, 68) 1.9px;
+}
+.stats button:hover {
+  border-bottom: solid rgb(0, 255, 68);
+}
+#winboard {
+  color: rgb(25, 239, 25);
+  font-family: "Press Start 2P", cursive;
+}
+#lossboard {
+  color: red;
+  font-family: "Press Start 2P", cursive;
+}
+
+.stick {
+  width: 2%;
+  height: 29vh;
+  background-color: black;
+}
+.player1 {
+  background-color: rgb(0, 0, 0);
+}
+.player2 {
+  height: 70vh;
+}
+.points-star-streak {
+  margin-left: 50px;
+  margin-top: 30px;
+  width: 20%;
+  height: 10vh;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  gap: 40px;
+}
+.points-star-streak img {
+  width: 50px;
+}
+#streak {
+  width: 40px;
+}
+.star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.streak {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.place {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  height: 10vh;
+  border-radius: 15px;
+  background-color: rgba(35, 35, 33, 0.658);
+}
+.place1 {
+  background-color: rgba(255, 255, 0, 0.796);
+}
+.place2 {
+  background-color: rgba(0, 128, 0, 0.699);
+}
+
+.boardUi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 40vh;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px;
+  border: solid gray 9px;
+  color: white;
+  flex-direction: column;
+  gap: 20px;
+}
+.boardUi img {
+  width: 70px;
+}
+.lbright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.statsbox {
+  height: 18vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  background-color: black;
+}
+@media (max-width: 576px) {
+  header {
+    height: 20vh;
+  }
+  #loss {
+    margin-left: 20px;
+  }
+  #win {
+    margin-right: 20px;
+  }
+  .what {
+    border: solid;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .what button {
+    width: 50px;
   }
 }
