@@ -303,7 +303,7 @@ function updateUI() {
   winboards.textContent = `Win: ${winboard}`;
   lossboard.textContent = `Loss: ${lostboard}`;
   draw.textContent = `Draw: ${drawScore}`;
-  star.textContent = `: ${starscore}`;
-  streak.textContent = `: ${streakscore}`;
+  star.textContent = ` ${starscore}`;
+  streak.textContent = ` ${streakscore}`;
   leaderpoints.textContent = `: ${starscore}`;
 }

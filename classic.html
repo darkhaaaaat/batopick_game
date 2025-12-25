@@ -24,16 +24,24 @@
           transform: scale(2);
         }
       }
+
+      #header {
+        justify-content: space-around;
+      }
     </style>
   </head>
   <body>
     <header id="header">
       <img src="static/elements/logo.png" alt="Logo" />
+
       <div id="points" class="points">
         <p id="win">win:</p>
         <p id="loss">loss:</p>
         <p id="draw">draw:</p>
       </div>
+      <a href="lobby.html"
+        ><img id="back" src="static/elements/arrow.png" alt="arrow"
+      /></a>
     </header>
     <main>
       <p id="timer"></p>

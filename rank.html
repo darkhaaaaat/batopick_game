@@ -29,16 +29,35 @@
         background-color: rgb(7, 230, 7);
         transition: 1s ease-in-out;
       }
+      .stats-container {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        padding-left: 10px;
+      }
+      .logo-box {
+        width: 15%;
+      }
     </style>
   </head>
   <body>
     <header id="header">
       <div class="what">
-        <div class="stats">
-          <button onclick="showstats()">Stats</button>
-          <button onclick="showboard()">LeaderBoard</button>
-          <button>Settings</button>
+        <div class="stats-container">
+          <a href="lobby.html"
+            ><img id="back" src="static/elements/arrow.png" alt="arrow"
+          /></a>
+          <div class="stats">
+            <button onclick="showstats()">Stats</button>
+            <button onclick="showboard()">LeaderBoard</button>
+            <button>Shop</button>
+          </div>
         </div>
+        <div class="logo-box">
+          <img src="static/elements/logo.png" alt="Logo" />
+        </div>
+
         <div class="boards" style="display: none">
           <div class="board leftboard">
             <p id="win">0</p>

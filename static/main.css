@@ -217,14 +217,12 @@ button {
   display: flex;
   justify-content: end;
   align-items: center;
-  border: solid;
+
   justify-content: space-between;
 }
 .stats {
-  width: 50%;
-
+  width: auto;
   padding-top: 20px;
-  margin-top: 40px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -339,6 +337,13 @@ button {
   gap: 20px;
   background-color: black;
 }
+#back {
+  cursor: pointer;
+  width: 90px;
+}
+#back:hover {
+  width: 95px;
+}
 @media (max-width: 576px) {
   header {
     height: 20vh;
@@ -350,7 +355,6 @@ button {
     margin-right: 20px;
   }
   .what {
-    border: solid;
     width: 100%;
     display: flex;
     justify-content: center;
