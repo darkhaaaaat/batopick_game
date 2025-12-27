@@ -24,6 +24,30 @@
         border-radius: 50px;
         border: solid rgb(0, 0, 0) 2px;
         background-color: rgb(99, 101, 99);
+        animation: glide 0.5s ease-in;
+      }
+      #circle1 {
+        animation: glide1 0.5s ease-in;
+      }
+      @keyframes glide1 {
+        from {
+          transform: translateX(250px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes glide {
+        from {
+          transform: translateX(-150px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
       .updatescore {
         background-color: rgb(7, 230, 7);
@@ -92,7 +116,7 @@
       <p id="timer"></p>
 
       <div id="mainbox" class="box">
-        <div class="circle">
+        <div style="display: none" id="circle" class="circle">
           <div id="p1" class="circleUpdate"></div>
           <div id="p2" class="circleUpdate"></div>
           <div id="p3" class="circleUpdate"></div>
@@ -105,7 +129,7 @@
         <div id="AI" class="AI">
           <p id="OP"></p>
         </div>
-        <div class="circle">
+        <div style="display: none" id="circle1" class="circle">
           <div id="a1" class="circleUpdate"></div>
           <div id="a2" class="circleUpdate"></div>
           <div id="a3" class="circleUpdate"></div>

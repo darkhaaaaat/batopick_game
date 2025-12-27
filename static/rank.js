@@ -21,6 +21,9 @@ const OP = document.getElementById("OP");
 const star = document.getElementById("star");
 const streak = document.getElementById("streakId");
 
+const circle = document.getElementById("circle");
+const circle1 = document.getElementById("circle1");
+
 const p1 = document.getElementById("p1");
 const p2 = document.getElementById("p2");
 const p3 = document.getElementById("p3");
@@ -74,6 +77,8 @@ function start() {
     loader.style.display = "none";
     btn.style.display = "none";
     pick.style.display = "flex";
+    circle.style.display = "flex";
+    circle1.style.display = "flex";
   }, 4000);
 }
 
